@@ -120,11 +120,11 @@ logreg = Pipeline([('vect', CountVectorizer(ngram_range=(1, 1))),
                 ('tfidf', TfidfTransformer()),
                 ('clf', LogisticRegression(n_jobs=1, C=1e5)),
                ])
-for i in range(100):
-    logreg.fit(X_train, y_train) # Обучение модели
-    y_pred = logreg.predict(X_test)   # Предсказание на тестовых данных
-    # Оценка точности классификации
-    print('accuracy %s' % accuracy_score(y_pred, y_test))
+
+logreg.fit(X_train, y_train) # Обучение модели
+y_pred = logreg.predict(X_test)   # Предсказание на тестовых данных
+# Оценка точности классификации
+print('accuracy %s' % accuracy_score(y_pred, y_test))
 yrt = open("test_dataset_test.csv", encoding='utf-8')
 read_test = csv.reader(yrt, delimiter = ",")
 ides=[]
